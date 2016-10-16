@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="LunchApp">
   <head>
     <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,20 +9,22 @@
     </style>
   </head>
 <body>
-   <div class="container">
+   <div class="container" ng-controller="LunchAmountCtrl">
      <h1>Lunch Checker</h1>
 
          <div class="form-group">
              <input id="lunch-menu" type="text"
-             placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
+             placeholder="list comma separated dishes you usually have for lunch(do not use empty values)"
+             class="form-control" ng-model="lunchData" ng-keyup="clearMsg()">
          </div>
          <div class="form-group">
-             <button class="btn btn-default">Check If Too Much</button>
+             <button ng-click="checkLunch()" class="btn btn-default">Check If Too Much</button>
          </div>
-         <div class="form-group message">
+         <div class="form-group message" ng-bind="msg">
            <!-- Your message can go here. -->
          </div>
    </div>
+   <script src="scripts/angular.min.js"></script>
+   <script src="scripts/app.js"></script>
 </body>
 </html>
